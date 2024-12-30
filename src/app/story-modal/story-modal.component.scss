@@ -1,0 +1,16 @@
+.story-content {
+    text-align: center;
+    padding: 0px;
+  }
+  
+  .story-content img {
+    max-width: 100%;
+    max-height: 100vh;
+  }
+
+  .ig {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }

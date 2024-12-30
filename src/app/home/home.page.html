@@ -1,0 +1,130 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custome-header">
+    <!-- Sección para el logo -->
+    <ion-buttons slot="start">
+      <img src="assets/logo.png" alt="Charanga Latina" style="height: 40px; margin-right: 10px;" />
+    </ion-buttons>
+
+    <!-- Título y redes sociales -->
+
+      <ion-buttons>
+        <ion-button (click)="openSocialMedia('facebook')">
+          <ion-icon name="logo-facebook" style="margin: 0 5px; font-size: 24px;"></ion-icon>
+        </ion-button>
+        <ion-button (click)="openSocialMedia('instagram')">
+          <ion-icon name="logo-instagram" style="margin: 0 5px; font-size: 24px;"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    <!-- Toggle de modo claro/oscuro -->
+    <ion-buttons slot="end">
+      <ion-toggle [checked]="isDarkModeEnabled" (ionChange)="toggleDarkMode($event)"></ion-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+   
+
+  <ion-content  [fullscreen]="true">
+
+
+  <!-- Lista horizontal de clientes -->
+  <!-- Lista horizontal de clientes -->
+  <div class="scroll-container">
+    <div class="scroll-content">
+    
+        <ion-col size="auto" *ngFor="let client of clients" (click)="openStory(client)">
+          <div class="story">
+            <ion-avatar>
+              <img [src]="client.Logo" alt="{{ client.Nombre }}">
+            </ion-avatar>
+            <p>{{ client.Nombre }}</p>
+          </div>
+        </ion-col>
+     
+   </div>
+  </div>
+  
+  
+  <h2 style="padding: 10px;">Noticias</h2>
+  
+  <div class="scroll-container">
+    <div class="scroll-content">
+      <ion-card size="auto" *ngFor="let post of posts" (click)="openPost(post)">
+        <img [src]="post.featured_media_url" alt="{{ post.title.rendered }}" class="square-image">
+        <ion-card-header>
+          <ion-card-title class="limited-text">
+            {{ post.title.rendered }}
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+
+  <h2 style="padding: 10px;">Nos escuchas en: </h2>
+
+  <ion-card class="no-background-shadow">
+    <ion-img class="dials" src="assets/dials.png" ></ion-img>
+  </ion-card>
+
+  <h2 style="padding: 10px;">Staff</h2>
+  <div class="scroll-container">
+    <div class="scroll-content">
+      <ion-card *ngFor="let staffMember of staffMembers" (click)="openStaffDetail(staffMember)">
+        <img [src]="staffMember.foto" alt="{{ staffMember.nombre }}" class="square-image">
+        <ion-card-header>
+          <ion-card-title class="limited-text">
+            {{ staffMember.nombre }}
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{ staffMember.cargo }}
+          </ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+  
+
+
+</ion-content>
+<ion-card slot="fixed" vertical="bottom" horizontal="end" class="radio-card">
+  <ion-card-content >
+    <div class="radio-content">
+      <div class="radio-image">
+        <img src="assets/tumbplay.png" alt="Logo de la radio">
+      </div>
+      <div class="radio-text">
+        Disfruta de nuestra transmisión en vivo
+      </div>
+      <div class="radio-button">
+        <ion-button class="play-boton" (click)="togglePlayPause()">
+          <ion-icon [name]="(audioService.isPlaying$ | async) ? 'pause' : 'play'"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>
+<ion-footer translucent="true">
+  <ion-toolbar translucent="true">
+    <ion-tabs translucent="true">
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button style="color: #000;" tab="radio-cam">
+          <ion-icon name="videocam"></ion-icon>
+          <ion-label>Radio Cam</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button style="color: #000;"  tab="muro">
+          <ion-icon name="megaphone"></ion-icon>
+          <ion-label>anúnciate</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button style="color: #000;" (click)="openWhatsApp()">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+          <ion-label>WhatsApp</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+

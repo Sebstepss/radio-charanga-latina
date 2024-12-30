@@ -1,0 +1,131 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Muro de Anuncios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openEditUserInfoModal()">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Comentario destacado -->
+  <ion-card *ngIf="highlightedComment" class="highlighted-comment">
+    <ion-card-content>
+      <div class="comment-content">
+        <ion-avatar slot="start">
+          <img [src]="highlightedComment.avatar">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ highlightedComment.name }}</h2>
+          <p class="comment-text">{{ highlightedComment.content }}</p>
+        </ion-label>
+      </div>
+      <div class="countdown">
+        <span>{{ highlightTimeLeft }}</span>
+      </div>
+    </ion-card-content>
+    <ion-text color="success" class="highlight-message">
+      <p>"Todos están viendo tu anuncio por 30seg, ¡sonríe! :)"</p>
+    </ion-text>
+  </ion-card>
+
+
+  <!-- Lista de comentarios -->
+  <ion-list>
+    <ion-item *ngFor="let comment of comments">
+      <ion-avatar slot="start">
+        <img [src]="comment.avatar" alt="Avatar">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ comment.name }}</h2>
+        <p>{{ comment.content }}</p>
+        <p>{{ comment.timestamp.toDate() | date:'short' }}</p>
+      </ion-label>
+      <ion-button fill="clear" (click)="reportComment(comment)" *ngIf="!comment.reported">
+        <ion-icon name="flag-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreComments($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más comentarios..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input 
+      [(ngModel)]="newComment.content" 
+      placeholder="Escribe tu mensaje o anuncia algo..." 
+      maxlength="480"
+    ></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="addComment()">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- Modal para ingresar nombre y seleccionar avatar -->
+<!-- Modal para ingresar nombre y seleccionar avatar -->
+<ion-modal [isOpen]="showInitialModal">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Bienvenido</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="newComment.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Selecciona un avatar</ion-label>
+        <ion-button (click)="openAvatarModal()">Elegir Avatar</ion-button>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-checkbox [(ngModel)]="acceptedPolicies"></ion-checkbox>
+        <ion-label class="ion-text-wrap">
+          Acepto las políticas: no usar lenguaje ofensivo y no realizar spam, más información en charangalatina.cl.
+        </ion-label>
+      </ion-item>
+      <ion-button expand="block" (click)="continueToPolicy()">Continuar</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+<!-- El resto del código permanece igual -->
+<!-- Modal para seleccionar avatar -->
+<ion-modal [isOpen]="isAvatarModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Selecciona un Avatar</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeAvatarModal()">Cerrar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let avatar of avatars">
+            <ion-img [src]="avatar" (click)="selectAvatar(avatar)"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ng-template>
+</ion-modal>

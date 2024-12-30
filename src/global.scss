@@ -1,0 +1,145 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Dark mode */
+@import '@ionic/angular/css/palettes/dark.system.css';
+
+
+
+:root {
+  --ion-font-family: 'Oswald', sans-serif;
+
+  --ion-color-primary: #000000;
+  --ion-color-secondary: #000000;
+  --ion-color-tertiary: #7044ff;
+  --ion-color-success: #10dc60;
+  --ion-color-warning: #ffce00;
+  --ion-color-danger: #f04141;
+  --ion-color-light: #f4f5f8;
+  --ion-color-medium: #000000;
+  --ion-color-dark: #000000;
+
+  body {
+    background-image: url('/assets/bg2.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Hacer transparentes las partes principales */
+  ion-header, ion-content {
+    --background: transparent; /* Fondo transparente */
+    --ion-background-color: transparent; /* Asegura compatibilidad */
+    backdrop-filter: blur(10px); /* Opcional: Añade un efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Desenfoque en Safari */
+    box-shadow: none; /* Elimina sombras */
+  }
+
+  ion-card {
+    --background: #ffffff; /* Fondo blanco */
+    --border-radius: 8px; /* Bordes redondeados */
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    --padding: 16px; /* Espaciado interno */
+  }
+  
+  /* Texto y colores adicionales */
+  ion-header, ion-toolbar, ion-content {
+    --ion-text-color: #000000; /* Color de texto blanco para contraste */
+    --color: #000000;
+  }
+
+
+
+}
+
+ion-card-title {
+  font-size: 14px !important; /* Forzar el tamaño */
+  line-height: 16px; /* Ajusta la altura de línea si es necesario */
+  font-weight: normal;
+  color:#000000; 
+}
+
+body.dark {
+
+  ion-toolbar{
+    --ion-background-color: #ffffff;
+  }
+
+
+    .dials {
+      filter: invert(100%) hue-rotate(142deg);
+    }
+
+   /* Hacer transparentes las partes principales */
+   ion-header, ion-content {
+    --background: transparent; /* Fondo transparente */
+    --ion-background-color: transparent; /* Asegura compatibilidad */
+    backdrop-filter: blur(10px); /* Opcional: Añade un efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Desenfoque en Safari */
+    box-shadow: none; /* Elimina sombras */
+  }
+  ion-card {
+    --background: #000000; /* Fondo blanco */
+    --border-radius: 8px; /* Bordes redondeados */
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    --padding: 16px; /* Espaciado interno */
+  }
+  
+  /* Texto y colores adicionales */
+  ion-header, ion-toolbar, ion-content {
+    --ion-text-color: #ffffff; /* Color de texto blanco para contraste */
+    --color: #ffffff;
+    --ion-toolbar-background: #000000;
+    --ion-toolbar-text-color: #ffffff;
+  }
+
+    background: linear-gradient(135deg, #000000, #111111); /* Cambia los colores según tu preferencia */
+    background-attachment: fixed; /* Fija el fondo para evitar scroll */
+    background-size: cover; /* Asegura que el degradado cubra toda la pantalla */
+    margin: 0;
+    padding: 0;
+  
+
+  /* Tema oscuro */
+  --ion-background-color: #121212;
+  --ion-text-color: #838383;
+  --ion-color-primary: #bb86fc;
+  --ion-color-secondary: #03dac6;
+}
+
+
+
+  body.dark ion-card-title {
+    color: #ffffff; /* Color del texto para tema oscuro */
+  }
+  
+  ion-avatar {
+ 
+  }

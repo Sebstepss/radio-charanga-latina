@@ -1,0 +1,155 @@
+
+.no-background-shadow {
+  background: transparent !important; /* Elimina el fondo */
+  box-shadow: none !important;       /* Elimina la sombra */
+}
+.scroll-container {
+  overflow-x: auto; /* Habilitar desplazamiento horizontal */
+  scroll-snap-type: x mandatory; /* Opcional para scroll suave */
+}
+
+.scroll-content {
+  margin-left: 10px;
+  display: flex; /* Alinear los elementos horizontalmente */
+  gap: 1rem; /* Separación entre los elementos */
+}
+
+.scroll-content ion-card {
+  flex: 0 0 auto; /* Evitar que se compriman */
+  width: 160px; /* Ancho del card */
+  height: auto; /* Ajusta la altura automáticamente */
+  margin-left:-10px;
+  scroll-snap-align: start; /* Opcional: alineación al inicio */
+}
+
+ion-card {
+  flex: 0 0 auto; /* Evita que se compriman los cards */
+  cursor: pointer; /* Cambia el cursor para indicar que es clicable */
+  transition: transform 0.2s; /* Efecto visual opcional al pasar el cursor */
+}
+
+ion-card:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+.square-image {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  aspect-ratio: 1 / 1; /* Fuerza a que la imagen sea cuadrada */
+  object-fit: cover; /* Ajusta la imagen para que se recorte sin deformarse */
+  border-top-left-radius: 9px; /* Borde redondeado en la esquina superior izquierda */
+  border-top-right-radius: 9px; /* Borde redondeado en la esquina superior derecha */
+}
+
+
+ion-card-title.limited-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  max-width: 100%;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.radio-card {
+  border: 2px solid #ffffff;
+  box-shadow: none;
+  height: 60px; /* Altura del contenedor */
+  display: flex;
+  align-items: center;
+  padding: 0; /* Elimina el padding extra de IonCardContent */
+  background-color: black;
+}
+
+.radio-content {
+  border: 0px solid #ffffff;
+  background-color: #000;
+  display: grid;
+  grid-template-columns: 60px 1fr auto; /* Tres columnas */
+  align-items: center; /* Centra verticalmente el contenido */
+  gap: 10px; /* Espaciado entre columnas */
+  width: 100%;
+  height: 100%;
+  padding: 0 10px; /* Espaciado interno lateral */
+  box-sizing: border-box;
+}
+
+.radio-image img {
+  width: 70%;
+  height: 70%;
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  border-radius: 8px; /* Opcional: redondear bordes de la imagen */
+}
+
+.radio-text {
+  font-size: 14px; /* Tamaño de fuente ajustado */
+  color: var(--ion-text-color, #ffffff); /* Usa el color de texto definido por el tema */
+  white-space: nowrap; /* Evita que el texto se desborde */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Añade "..." si el texto es muy largo */
+}
+
+.radio-button {
+  text-align: right; /* Alinea el botón a la derecha */
+}
+
+#playPauseButton {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  height: 40px; /* Ajusta la altura del botón */
+}
+
+.play-boton {
+  --background: none; /* Sin fondo */
+  --background-activated: none; /* Sin fondo al hacer clic */
+  --padding-start: 0; /* Sin padding al inicio */
+  --padding-end: 0; /* Sin padding al final */
+  width: auto; /* Ajusta automáticamente al contenido */
+  height: auto;
+  border: none; /* Sin bordes */
+  box-shadow: none; /* Sin sombras */
+}
+
+.play-boton ion-icon {
+  font-size: 24px; /* Tamaño del ícono */
+  width: 24px; /* Ajustar ancho del ícono */
+  height: 24px; /* Ajustar altura del ícono */
+}
+
+.stories {
+  height: 100px; /* Altura fija para las historias */
+  margin-bottom: 20px;
+}
+
+.story {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-avatar {
+  width: 60px;
+  height: 60px;
+  border: #000000 3px solid;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.story p {
+  font-size: 12px;
+  margin-top: 5px;
+  color: var(--ion-text-color);
+}
+
+.custome-header{
+  padding-top: 5px ;
+  padding-bottom: 5px ;
+  
+  border-bottom: 2px solid #000000;
+    
+  
+}

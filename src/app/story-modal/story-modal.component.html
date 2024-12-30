@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+    <ion-title>{{ client.Nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="story-content">
+    <img [src]="client.Ads" alt="Ad">
+    <ion-button class="ig" expand="block" color="primary" (click)="goToLink()"><ion-icon slot="start" name="link"></ion-icon>Más Info</ion-button>
+  </div>
+</ion-content>
