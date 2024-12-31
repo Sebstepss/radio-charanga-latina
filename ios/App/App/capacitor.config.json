@@ -1,0 +1,18 @@
+{
+	"appId": "com.radio.charanga",
+	"appName": "Radio Charanga Latina",
+	"webDir": "www",
+	"server": {
+		"androidScheme": "https",
+		"allowNavigation": [
+			"charangalatina.cl"
+		]
+	},
+	"packageClassList": [
+		"AppPlugin",
+		"DevicePlugin",
+		"HapticsPlugin",
+		"KeyboardPlugin",
+		"StatusBarPlugin"
+	]
+}
